@@ -9,10 +9,10 @@ class Banner extends React.Component {
 				#wrapper
 					div 
 						img(src=logo, alt="logo")
-					h2#name DPSOCIAL
+					h2#name APSOCIAL
 					h3#slogan
 						| BEST WAY TO CONNECT 
-						| YOUR DEPARTMENT
+						| YOUR APARTMENT
 		`;
   }
 }
