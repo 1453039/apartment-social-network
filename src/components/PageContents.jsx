@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SideBarLeft from './PageContents/SideBarLeft.jsx';
-import SideBarRight from './PageContents/SideBarRight.jsx';
+import SideBarRight from './../store/index.js';
 import PostCreateBox from './PageContents/PostCreateBox.jsx';
 import PostContent from './PageContents/PostContent.jsx';
 import '../styles/PageContents.scss';

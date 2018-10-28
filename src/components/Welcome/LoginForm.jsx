@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Link} from 'react-router-dom';
 import ListApart from './ListApart.jsx';
 
 class LoginForm extends React.Component {
-  constructor () {
-    super ();
+  constructor (props) {
+    super (props);
     this.state = {
       isClick: false,
 			isFill: false,
@@ -21,7 +21,7 @@ class LoginForm extends React.Component {
         },
         {
           id: 2,
-          name: 'The Saigon Manhattan',
+          name: 'The Saigon Manhattan Apartment',
           position: 'Admin',
         },
       ],
