@@ -1,5 +1,6 @@
 export const REDIRECT = 'REDIRECT';
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 export const NEWFEED_PAGE_LOADED = 'NEWFEED_PAGE_LOADED';
 export const NEWFEED_PAGE_UNLOADED = 'NEWFEED_PAGE_UNLOADED';
 export const PROFILE_PAGE_LOADED = 'PROFILE_PAGE_LOADED';
