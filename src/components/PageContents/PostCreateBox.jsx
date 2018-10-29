@@ -9,7 +9,7 @@ class PostCreateBox extends React.Component {
           .col-md-7.col-sm-7
             .form-group
               img.profile-photo-md(src="http://placehold.it/300x300", alt="")
-              textarea.form-control(name="texts", cols="30", rows="1", placeholder="Write what you wish")
+              textarea.form-control(name="texts", cols="30", rows="1", placeholder="Write what you want")
           .col-md-5.col-sm-5
             .tools
               ul.publishing-tools.list-inline
