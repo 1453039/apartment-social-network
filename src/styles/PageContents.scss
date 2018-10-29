@@ -199,16 +199,16 @@
   margin-bottom: 20px;
   overflow: visible;
 	position: relative;
-	&:before {
-		content: "";
-	  position: absolute;
-	  background: none;
-	  width: 1px;
-	  height: 98%;
-	  left: -145px;
-	  border-left: 2px solid #8dc63f;
-	  top: 15px;
-	}
+	// &:before {
+	// 	content: "";
+	//   position: absolute;
+	//   background: none;
+	//   width: 1px;
+	//   height: 98%;
+	//   left: -145px;
+	//   border-left: 2px solid #8dc63f;
+	//   top: 15px;
+	// }
 	.post-date {
 		position: absolute;
   	margin-left: -125px;
