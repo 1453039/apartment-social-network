@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Dropdown from '../Dropdown.jsx';
+import Dropdown from './Dropdown.jsx';
 
 class Menu extends React.Component {
   constructor () {
