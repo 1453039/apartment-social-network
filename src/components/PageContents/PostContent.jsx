@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class PostContent extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-  render () {
-		const post = this.props.post;
-		const page = this.props.page;
+  render() {
+    const post = this.props.post;
+    const page = this.props.page;
     return pug`
 			.post-content
 				if (page == 'timeline')
