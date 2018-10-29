@@ -1,0 +1,143 @@
+#welcome {
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	min-height: 100vh;
+	background: linear-gradient(to bottom, rgba(43, 57, 144, .8), rgba(39, 170, 225, 1) 65%);
+
+	.login-form {
+		min-height: 100vh;
+		position: relative;
+
+		#wrapper {
+			position: absolute;
+			top: 30%;
+			left: 10%;
+			width: 100%;
+
+			h2 {
+				margin-bottom: 20px;
+			}
+
+			input {
+				padding: 25px 10px;
+				font-size: 20px;
+				border-radius: 5px;
+				margin-bottom: 5px;
+			}
+
+			button {
+				float: right;
+				border-radius: 4px;
+				padding: 10px;
+				width: 200px;
+				font-size: 20px;
+				transition: all 0.5s;
+				cursor: pointer;
+
+				span {
+					cursor: pointer;
+					display: inline-block;
+					position: relative;
+					transition: 0.5s;
+
+					&:after {
+						content: '\00bb';
+						position: absolute;
+						opacity: 0;
+						top: 0;
+						right: -20px;
+						transition: 0.5s;
+					}
+				}
+
+				&:hover {
+					background: linear-gradient(to bottom, #6d6e71, black);
+					span {
+						padding-right: 15px;
+
+						&:after {
+							opacity: 1;
+							right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.list-apart {
+		min-height: 100vh;
+		position: relative;
+		#wrapper {
+			position: absolute;
+			top: 23%;
+			left: 10%;
+			width: 100%;
+			button {
+				width: 100%;
+				border: none;
+				background-color: transparent;
+				margin: 10px 0;
+				cursor: pointer;
+				i {
+					color: black;
+					float: left;
+					vertical-align: middle;
+					font-size: 30px;
+				}
+				p {
+					color: white;
+					font-size: 25px;
+					text-align: left;
+					margin-left: 40px;
+					padding-top: 3px;
+					b {
+						float: right;
+					}
+					&:hover {
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	.banner {
+		min-height: 100vh;
+		position: relative;
+
+		#wrapper {
+			position: absolute;
+			top: 25%;
+			left: 25%;
+
+			h2#name {
+				color: black;
+				font-family: "Old Standard TT";
+				font-size: 100px;
+				text-align: center;
+				padding-top: 50px;
+			}
+
+			div {
+				position: relative;
+
+				img {
+					position: absolute;
+					left: 30%;
+				}
+			}
+
+			h3#slogan {
+				color: yellow;
+				font-family: "Raleway";
+				font-size: 30px;
+				text-align: center;
+				font-weight: bold;
+				white-space: pre;
+				line-height: 30pt;
+			}
+		}
+	}
+}
