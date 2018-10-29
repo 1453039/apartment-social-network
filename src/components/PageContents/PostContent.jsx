@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class PostContent extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
-  render () {
+	render() {
 		const post = this.props.post;
 		const page = this.props.page;
-    return pug`
+		return pug`
 			.post-content
 				if (page == 'timeline')
 					.post-date.hidden-xs.hidden-sm
@@ -49,7 +49,7 @@ class PostContent extends React.Component {
 							img.profile-photo-sm(src="http://placehold.it/300x300", alt="")
 							input.form-control(type="text", placeholder="Post a comment")
 		`;
-  }
+	}
 }
 
 export default PostContent;
