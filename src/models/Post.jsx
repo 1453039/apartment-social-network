@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
-	author: String,
+  author: String,
+  is_admin: Boolean,
 	description: String,
 	publish_time: {type: Date, default: Date.now},
 	num_like: {type: Number, default: 0 },
