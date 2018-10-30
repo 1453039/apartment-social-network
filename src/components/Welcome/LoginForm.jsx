@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import ListApart from './ListApart.jsx';
-
+import _ from "lodash"
 class LoginForm extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
+      account:{},
       isClick: false,
 			isFill: false,
       listApart: [
@@ -30,19 +31,30 @@ class LoginForm extends React.Component {
 		this.handleEmailChange = this.handleEmailChange.bind(this);
   }
   handleEmailChange (e) {
+    let {account} = this.state
+    account.email = e.target.value,
 		this.setState ({
-      email: e.target.value,
+      account
 		});
 	}
 
   handleClickNext () {
-    this.setState ({
-      isClick: true,
-		});
+    let arrAccout = [{email:"fuck",stt:"mhabskc"},{email:"you",stt:"mhabskc"}]
+    const {account} = this.state
+    let index = _.findIndex(arrAccout,{"email":account.email})
+    console.log("here",index);
+    
+    if(index!==-1){
+      /* this.setState ({
+        isClick: true,
+      }); */
+    } else {
+      
+    }
   }
 
   render () {
-    const isClick = this.state.isClick;
+    const {isClick} = this.state;
     return pug`
 			if !isClick
 				.login-form.col-md-5.col-sm-5
