@@ -28,22 +28,18 @@ class MyInfo extends Component {
 										label(for='email') My email
 										input#email.form-control.input-group-lg(type='text', name='email', title='Enter email', placeholder='Email', value='trangiabaothy.96@gmail.com', disabled)
 								.row
-									p.custom-label
-										strong Date of birth
-									.form-group.col-sm-3.col-xs-6  
-										label.sr-only(for='day')
-										input#day.form-control(type='text', name='day', title='Enter day', placeholder='Day', value='21')
-									.form-group.col-sm-3.col-xs-6  
-										label.sr-only(for='month')
-										input#month.form-control(type='text', name='month', title='Enter month', placeholder='Month', value='04')
-									.form-group.col-sm-3.col-xs-6  
-										label.sr-only(for='year')
-										input#year.form-control(type='text', name='year', title='Enter year', placeholder='Year', value='1996')
+									.form-group.col-xs-12
+										label(for='room') My room
+										input#room.form-control.input-group-lg(type='text', name='room', title='Enter room', placeholder='Room', value='A1', disabled)
+								.row
+									.form-group.col-xs-12
+										label(for='birthday') Date of birth
+										input#birthday.form-control.input-group-lg(type='date', name='birthday', title='Enter birthday', placeholder='birthday', value='1996-04-21')
 								.form-group.gender
 									span.custom-label 
 										strong I am a:
 									label#female.radio-inline Female
-										input(type='radio', name='optradio', value='female')
+										input(type='radio', name='optradio', value='female', checked)
 									label#male.radio-inline Male
 										input(type='radio', name='optradio', value='male')
 								button.btn.btn-primary(method='post') Save change

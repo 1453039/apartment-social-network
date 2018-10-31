@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+import Apartment from './Apartment'
 
 const UserSchema = new mongoose.Schema({
   email: String,
-  apartment: Schema.Types.ObjectId,
-	password: String,
+  apartment: {type: Schema.Types.ObjectId, ref: Apartment},
+	pass: String,
 	name: String,
-	birthday: Date,
+	DOB: Date,
 	sex: {type: String, enum: ['Male', 'Female']},
 	room: String,
 	isAdmin: Boolean

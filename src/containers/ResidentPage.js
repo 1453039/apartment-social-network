@@ -5,6 +5,12 @@ import ResidentList from '../components/PageContents/ResidentList.jsx'
 import Footer from '../components/Footer.jsx'
 
 class Resident extends Component {
+  constructor() {
+    super();
+    this.state = {
+      position: 'member'
+    }
+  }
   render() {
     return pug`
       Header
@@ -12,6 +18,8 @@ class Resident extends Component {
         .container
           .timeline
             MyCover
+            if(this.state.position == 'Admin')
+              button.btn.btn-primary(method='post') Add member
             ResidentList
       Footer
     `;
