@@ -4,13 +4,13 @@ let socket;
 
 
 export function getSocket(){
-    console.log("socket console");
-    if(socket){
-        return socket
-    }
-    socket = io.connect();
-    socket.on('connect', function(){
-        axios.get(`/connected/${socket.id}`)
-    })
+  console.log("socket console");
+  if(socket){
     return socket
+  }
+  socket = io.connect();
+  socket.on('connect', function(){
+    axios.get(`/connected/${socket.id}`)
+  })
+  return socket
 }

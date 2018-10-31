@@ -1,35 +1,22 @@
 import React, { Component } from 'react';
 import '../../styles/PageContents.scss';
 import '../../styles/Info.scss';
+import InfoMenu from './InfoMenu.jsx'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class MyInfo extends Component {
-	constructor (){
-		super();
-	}
   render() {
     return pug`
 			#page-contents
 				.row
 					.col-md-4
-						ul.edit-menu
-							li
-								i.icon.ion-ios-information-outline
-								Router
-									Link(to='/info') Basic Information
-							li
-								i.icon.ion-ios-settings
-								Router
-									Link(to='/accountsetting') Account Settings
-							li
-								i.icon.ion-ios-locked-outline
-								Router
-									Link(to='/changepassword') Change Password
+						InfoMenu
 					.col-md-5
 						.edit-profile-container
 							.block-title
-								h4.grey Edit basic information
+								h4.grey 
 									i.icon.ion-android-checkmark-circle
+									| Edit basic information
 							.edit-block
 								form.form-inline#basic.info(name='basic-info')
 								.row
