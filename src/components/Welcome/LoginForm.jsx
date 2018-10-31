@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import ListApart from './ListApart.jsx';
 import _ from "lodash"
+
 class LoginForm extends React.Component {
   constructor (props) {
     super (props);
@@ -45,9 +46,9 @@ class LoginForm extends React.Component {
     console.log("here",index);
     
     if(index!==-1){
-      /* this.setState ({
+      this.setState ({
         isClick: true,
-      }); */
+      });
     } else {
       
     }
