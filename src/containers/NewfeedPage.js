@@ -7,7 +7,7 @@ class NewfeedPage extends Component {
   render() {
     return pug`
       Header
-      div(className="newfeed")
+      div(className="NewfeedPage")
         PageContents
       Footer
     `;

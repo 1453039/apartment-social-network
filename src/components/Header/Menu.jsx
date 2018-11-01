@@ -6,15 +6,30 @@ import {bindActionCreators} from 'redux';
 class Menu extends React.Component {
   constructor () {
     super ();
+    this.state = {
+      home: [],
+      notification: [
+        {
+          id: 0,
+          title: 'From Admins',
+        },
+        {
+          id: 1,
+          title: 'From Members',
+        },
+      ],
+      payment: [],
+      trading: [],
+    };
 	}
 
   render () {
     return pug`
       ul.nav.navbar-nav.navbar-right.main-menu
-        Dropdown(title = "Home", list =this.props.home)
-        Dropdown(title = "Newfeeds", list =this.props.newfeeds)
-        Dropdown(title = "Timeline", list =this.props.timeline)
-        Dropdown(title = "All Pages", list =this.props.allpage)
+        Dropdown(title = 'Home')
+        Dropdown(title = "Notification", list =this.state.notification)
+        Dropdown(title = "Payment", list =this.state.payment)
+        Dropdown(title = "Trading", list =this.state.trading)
     `;
   }
 }

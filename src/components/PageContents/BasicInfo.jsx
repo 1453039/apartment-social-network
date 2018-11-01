@@ -42,7 +42,7 @@ class MyInfo extends Component {
 										input(type='radio', name='optradio', value='female', checked)
 									label#male.radio-inline Male
 										input(type='radio', name='optradio', value='male')
-								button.btn.btn-primary(method='post') Save change
+								button.info.btn.btn-primary(method='post') Save change
 								
 		`;
   }

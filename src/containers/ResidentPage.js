@@ -19,7 +19,7 @@ class Resident extends Component {
           .timeline
             MyCover
             if(this.state.position == 'Admin')
-              button.btn.btn-primary(method='post') Add member
+              button#add-mem.btn.btn-primary(method='post') Add member
             ResidentList
       Footer
     `;

@@ -6,6 +6,7 @@ import MyTimelinePage from './containers/MyTimelinePage';
 import ResidentPage from './containers/ResidentPage';
 import WelcomePage from './containers/WelcomePage';
 import EditPassPage from './containers/EditPassPage';
+import MessagePage from './containers/MessagePage';
 
 class Main extends Component {
   render() {
@@ -16,6 +17,7 @@ class Main extends Component {
       Route(path='/timeline', component=MyTimelinePage)
       Route(path='/member', component=ResidentPage)
       Route(path='/changepassword', component=EditPassPage)
+      Route(path='/message', component=MessagePage)
       Route(path='/', component=WelcomePage)
       Route(exact component=WelcomePage)
     `;

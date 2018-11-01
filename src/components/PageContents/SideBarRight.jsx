@@ -4,10 +4,56 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 class SideBarRight extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      newFriends: [
+				{
+					id: 0,
+					name: 'Nguyễn Phạm Song Huy',
+					linkImg: 'http://placehold.it/300x300'
+				},
+				{
+					id: 1,
+					name: 'Nguyễn Minh Chánh',
+					linkImg: 'http://placehold.it/300x300'
+				},
+      ],
+			info: [
+        {
+          id: 0,
+          name: 'About us',
+          link: 'https://translate.google.com/?hl=vi'
+        },
+        {
+          id: 1,
+          name: 'Contact us',
+          link: 'https://translate.google.com/?hl=vi'
+        },
+        {
+          id: 2,
+          name: 'Privacy Policy',
+          link: 'https://translate.google.com/?hl=vi'
+        },
+        {
+          id: 3,
+          name: 'Ads',
+          link: 'https://translate.google.com/?hl=vi'
+        },
+        {
+          id: 4,
+          name: 'Terms',
+          link: 'https://translate.google.com/?hl=vi'
+        },
+        {
+          id: 5,
+          name: 'Help',
+          link: 'https://translate.google.com/?hl=vi'
+        }
+      ]
+    }
   }
 
   render() {
-    const {newFriends, info} = this.props;
+    const {newFriends, info} = this.state;
     return pug`
       .col-md-2.static
         .suggestions#sticky-sidebar
@@ -18,7 +64,7 @@ class SideBarRight extends React.Component {
               div
                 h5
                   Router
-                    Link(to='timeline.jsx') #{item.name}
+                    Link(to='/timeline') #{item.name}
                 Router
                   Link(to='/').text-green Chat now
         .footer

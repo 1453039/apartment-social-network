@@ -29,7 +29,7 @@ class PostCreateBox extends React.Component {
                   Router
                     Link(to="#")
                       i.ion-map       
-              button.btn.btn-primary.pull-right Publish
+              button#publish.btn.btn-primary.pull-right Publish
     `;
   }
 }

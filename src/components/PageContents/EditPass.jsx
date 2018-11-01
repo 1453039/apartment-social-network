@@ -33,7 +33,7 @@ class EditPass extends Component {
 								p
 									Router
 										Link(to='/') Forgot password?
-								button.btn.btn-primary(method='post') Update password
+								button.info.btn.btn-primary(method='post') Update password
 		`;
   }
 }
