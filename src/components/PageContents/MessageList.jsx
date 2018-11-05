@@ -22,20 +22,21 @@ class MessageList extends Component {
             },
             {
               id: 1,
-              detail: 'hello',
+              detail: 'hi',
               time: 'a minutes ago',
               status: 'seen',
               isFriend: false
             },
             {
               id: 2,
-              detail: 'hello',
+              detail: 'goodbye',
               time: 'a minutes ago',
               status: 'seen',
               isFriend: true
-            },{
+            },
+            {
               id: 3,
-              detail: 'hello',
+              detail: 'bye',
               time: 'a minutes ago',
               status: 'seen',
               isFriend: false
@@ -74,8 +75,6 @@ class MessageList extends Component {
 
   render() {
     const {message} = this.state;
-    const mess1 = [];
-    const mess2 = [];
     return pug`
     .chat-room
       .row
@@ -104,23 +103,30 @@ class MessageList extends Component {
             #contact-1.tab-pane.active
               .chat-body
                 ul.chat-message
-                  each content in (message[0].contents) ? mess1.push(content) : mess2.push(content)
-                  each content in mess1  
-                    li.left(key=content.id)
+                    li.left
                       img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
                       .chat-item
                         .chat-item-header
-                          small.text-muted #{content.time}
-                        p #{content.detail}
-                  each content in mess2 
-                    li.right(key=content.id)
-                    //img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
-                    .chat-item
-                      .chat-item-header
-                        small.text-muted #{content.time}
-                      p #{content.detail}
-
-
+                          h5 #{message[0].name}
+                          small.text-muted #{message[0].contents[0].time}
+                        p #{message[0].contents[0].detail}
+                    li.right
+                      .chat-item
+                        .chat-item-header
+                          small.text-muted #{message[0].contents[1].time}
+                        p #{message[0].contents[1].detail}
+                    li.left
+                      img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
+                      .chat-item
+                        .chat-item-header
+                          h5 #{message[0].name}
+                          small.text-muted #{message[0].contents[2].time}
+                        p #{message[0].contents[2].detail}
+                    li.right
+                      .chat-item
+                        .chat-item-header
+                          small.text-muted #{message[0].contents[3].time}
+                        p #{message[0].contents[3].detail}
     `;
   }
 }
