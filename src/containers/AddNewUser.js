@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import AddUser from '../components/AddUser';
+import AddUser from '../components/PageContents/AddUser.jsx';
 import '../../public/styles/AddUser.scss';
 
 class AddNewUser extends React.Component {
@@ -18,7 +18,7 @@ class AddNewUser extends React.Component {
   }
 
   getData(e) {
-    axios.get('/adduser/getAll')
+    axios.get('/add-user/getAll')
       .then(function (response) {
         e.setState({ data: response.data });
       })

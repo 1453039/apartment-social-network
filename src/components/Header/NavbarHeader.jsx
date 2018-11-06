@@ -11,9 +11,8 @@ class NavbarHeader extends React.Component {
           span(class="icon-bar")
           span(class="icon-bar")
           span(class="icon-bar")
-        Router
-          Link(className="navbar-brand", to="/")
-            img(src=logo, alt="logo")
+        Link(className="navbar-brand", to="/newfeeds")
+          img(src=logo, alt="logo")
     `;
   }
 }

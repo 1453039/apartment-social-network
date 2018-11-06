@@ -7,29 +7,37 @@ class Menu extends React.Component {
   constructor () {
     super ();
     this.state = {
-      home: [],
+      home: {
+        link: '/'
+      },
       notification: [
         {
           id: 0,
           title: 'From Admins',
+          link: '/admin-noti'
         },
         {
           id: 1,
           title: 'From Members',
+          link: '/member-noti'
         },
       ],
-      payment: [],
-      trading: [],
+      payment: {
+        link: '/payment'
+      },
+      trading: {
+        link: '/trading'
+      },
     };
 	}
 
   render () {
     return pug`
       ul.nav.navbar-nav.navbar-right.main-menu
-        Dropdown(title = 'Home')
-        Dropdown(title = "Notification", list =this.state.notification)
-        Dropdown(title = "Payment", list =this.state.payment)
-        Dropdown(title = "Trading", list =this.state.trading)
+        Dropdown(title='Home')
+        Dropdown(title="Notification", list=this.state.notification)
+        Dropdown(title="Payment", list=this.state.payment)
+        Dropdown(title="Trading", list=this.state.trading)
     `;
   }
 }

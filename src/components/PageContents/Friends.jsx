@@ -16,8 +16,7 @@ class Friends extends React.Component {
   						.card-info
   							img(src=item.linkImg, alt="user").profile-photo-lg
   							.friend-info
-  								Router
-  									Link(to='/').pull-right.text-green Inbox
+  								Link(to='/').pull-right.text-green Inbox
   								h5 #{item.name}
   								p Room:
   									span #{item.room}

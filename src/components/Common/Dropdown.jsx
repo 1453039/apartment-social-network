@@ -41,8 +41,7 @@ class Dropdown extends Component {
           ul(className="dropdown-menu")
             each item in list
               li(key=item.id)
-                Router
-                  Link(to=item.title) #{item.title}
+                Link(to=item.title) #{item.title}
         `;
   }
 }

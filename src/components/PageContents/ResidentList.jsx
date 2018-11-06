@@ -7,6 +7,7 @@ class ResidentList extends Component {
 	constructor() {
 		super();
 		this.state = {
+			role: 'admin',
 			friends: [
 				{
 					id: 0,
@@ -27,14 +28,16 @@ class ResidentList extends Component {
 	}
 
   render() {
-    return pug`
-      #page-contents
-        .row
-          .col-md-3
-          .col-md-9
-            .friend-list
-              Friends(friends=this.state.friends)
-    `;
+		return pug`
+			#page-contents
+				.row
+					.col-md-3
+						if(this.state.role =='admin')
+							button#add-member.btn.btn-primary Add member
+					.col-md-9
+						.friend-list
+							Friends(friends=this.state.friends)
+		`;
   }
 }
 

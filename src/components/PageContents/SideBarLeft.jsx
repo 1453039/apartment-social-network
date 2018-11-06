@@ -33,35 +33,30 @@ class SideBarLeft extends React.Component {
           li
             i.icon.ion-ios-paper 
             div
-              Router
-                Link(to="/newfeed") My Newsfeed
+             Link(to="/newfeeds") My Newsfeed
           li
             i.icon.ion-ios-people-outline
             div
-              Router
-                Link(to="/member") Members
+             Link(to="/members") Members
           li
             i.icon.ion-ios-chatboxes
             div
-              Router
-                Link(to="/message") Messages
+             Link(to="/messages") Messages
           li
             i.icon.ion-ios-body
             div
-              Router
-                Link(to="/event") Events
+             Link(to="/events") Events
           li
             i.icon.ion-information-circled
             div
-              Router
-                Link(to="/report") Report
+             Link(to="/reports") Report
         #chat-block
           .title Chat Online
           ul.online-users.list-inline
             each item in users
               li(key=item.id)
                 Router
-                  Link(to="/message", title=item.name)
+                  Link(to="/messages", title=item.name)
                     img(src=item.linkImg, alt="user").img-responsive.profile-photo
                     span.online-dot
     `;
