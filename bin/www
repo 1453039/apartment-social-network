@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../sever/sever');
+var app = require('../server/server');
 var debug = require('debug')('apartment-social-network:server');
 var http = require('http');
 
