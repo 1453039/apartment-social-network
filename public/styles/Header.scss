@@ -1,0 +1,86 @@
+header {
+  min-height: 50px;
+  .menu {
+    background: #231F20;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    .container {
+      max-width: 1050px;
+    }
+    form {
+      margin: 12px 0;
+      border: 0 solid;
+      .form-group {
+        position:relative;
+        i.icon {
+          position: absolute;
+          left: 10px;
+          top: 3px;
+          color: #fff;
+        }               
+        input.form-control {
+          background: rgba(255,255,255, 0.2);
+          border: 0;
+          box-shadow: none;
+          min-width: 235px;
+          color: #fff;
+          height: 26px;
+          border-radius: 13px;
+          font-size: 13px;
+          padding-left: 30px;
+          padding-right: 100px;
+          margin-right: 50px;
+        }
+      }
+    }
+    ul.main-menu {
+      li.dropdown {
+        .dropdown-toggle {
+          line-height: 26px;
+          color: #fff;
+          background: #231F20;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 15px;
+          border: 0 solid;
+        }
+        .dropdown-toggle:hover, .dropdown-toggle:active, .dropdown-toggle:focus {
+          color: #27aae1;
+          background: none;
+        }
+        .dropdown-menu {
+          display: block;
+          position: absolute;
+          top: 100%;
+          z-index: 1000;
+          float: left;
+          min-width: 160px;
+          background: #231F20;
+          box-shadow: none;
+          border: 0;
+          padding: 0;
+          font-size: 14px;
+          text-align: left;
+          list-style: none;
+          li {
+            list-style: none;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255, 0.1);
+            a {
+              color: #fff;
+              font-size: 13px;
+              line-height: 16px;
+              font-weight: 600;
+              
+              &:hover, &:active, &:focus {
+                  background:  #231F20;
+                  color: #e6e6e6;
+              }
+            }
+          }
+        }
+      }
+    }
+  }    
+}

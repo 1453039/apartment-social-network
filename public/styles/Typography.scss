@@ -1,0 +1,65 @@
+@font-face {
+	font-family:"Agency FB";
+	src: url("./fonts/agency-fb.eot") /* EOT file for IE */
+}
+@font-face {
+	font-family:"Agency FB";
+	src: url("./fonts/agency-fb.ttf") /* TTF file for CSS3 browsers */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #27aae1;
+
+	&.grey {
+		color: #6d6e71;
+		margin: 0 auto 20px;
+	}
+}
+
+.text-white{color: #fff;}
+
+.text-white:hover{color: #fff;}
+
+.text-green{color: #8dc63f;}
+
+.text-green:hover{color: #39b54a;}
+
+.text-red{color: #ef4136;}
+
+.text-red:hover{color: #d6100b;}
+
+.profile-link{font-weight: 600;}
+
+.text-muted{color: #939598;}
+
+a {
+	color: #27aae1;
+	outline: none;
+
+	&:hover {color: #149AC9;}
+
+	&:active, &:focus {
+		outline: none;
+	}
+}
+
+section {
+	h1.section-title {
+		font-family: 'Agency FB', sans-serif;
+		font-size: 215px;
+		color: #E6E7E8;
+		margin-bottom: -55px;
+	}
+	h2.sub-title{
+		font-family: 'Agency FB', sans-serif;
+		color: #E6E7E8;
+		font-size: 50px;
+		margin: 40px 0;
+	}
+}
+
+.following {
+color: #8dc63f;
+font-size: 12px;
+margin-left: 20px;
+}
