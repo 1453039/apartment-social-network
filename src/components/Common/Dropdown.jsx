@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
-import DownArrow from '../../images/down-arrow.png';
+import DownArrow from '../../../public/images/down-arrow.png';
 
 class Dropdown extends Component {
   constructor (props) {

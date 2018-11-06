@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/PageContents.scss';
-import '../../styles/Info.scss';
+import '../../../public/styles/PageContents.scss';
+import '../../../public/styles/Info.scss';
 import InfoMenu from './InfoMenu.jsx'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ class EditPass extends Component {
 								p
 									Router
 										Link(to='/') Forgot password?
-								button.info.btn.btn-primary(method='post') Update password
+								button.btn.btn-primary(method='post') Update password
 		`;
   }
 }

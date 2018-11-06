@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/PageContents.scss';
-import '../../styles/ResidentList.scss';
+import '../../../public/styles/PageContents.scss';
+import '../../../public/styles/ResidentList.scss';
 import Friends from './Friends.jsx'
 
 class ResidentList extends Component {

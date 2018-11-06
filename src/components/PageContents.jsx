@@ -3,8 +3,8 @@ import SideBarLeft from './PageContents/SideBarLeft.jsx';
 import SideBarRight from './PageContents/SideBarRight.jsx';
 import PostCreateBox from './PageContents/PostCreateBox.jsx';
 import PostContent from './PageContents/PostContent.jsx';
-import '../styles/PageContents.scss';
-import Video from '../videos/1.mp4';
+import '../../public/styles/PageContents.scss';
+import Video from '../../public/videos/1.mp4';
 
 class PageContents extends Component {
   constructor () {

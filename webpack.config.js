@@ -1,19 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isTest = process.env.NODE_ENV === 'test';
-const port = process.env.PORT || 3000;
 
 module.exports = {
   mode: 'development',  
   entry: './src/index.js',
   output: {
     path       : path.join(__dirname, 'public'),
-    pathinfo   : true,
-    filename   : 'bundle.js',
-    publicPath : '/'
+    filename   : 'bundle.js'
   },
   devtool: 'eval-source-map',
   module: {
@@ -27,7 +23,7 @@ module.exports = {
       {
         test    : [/\.sass$/, /\.scss$/],
         loaders  : ['style-loader', 'css-loader', 'sass-loader'],
-        include : path.join(__dirname, 'src')
+        include : path.join(__dirname, 'public')
       },
       {
         test: /\.(js)$/,
@@ -80,12 +76,6 @@ module.exports = {
       inject: true
     })
   ],
-  devServer: {
-    host: 'localhost',
-    port: port,
-    historyApiFallback: true,
-    open: true
-  },
   node: {
     fs: "empty"
   }

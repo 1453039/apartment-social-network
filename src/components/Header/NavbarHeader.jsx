@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
+import logo from '../../../public/images/logo.png';
 
 class NavbarHeader extends React.Component {
   render() {

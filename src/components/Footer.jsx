@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SocialNetwork from './Footer/SocialNetwork.jsx';
 import AboutUs from './Footer/AboutUs.jsx';
-import '../styles/Footer.scss';
+import '../../public/styles/Footer.scss';
 
 class Footer extends Component {
   constructor() {

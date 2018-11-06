@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import footerLogo from '../../images/logo-black.png';
+import footerLogo from '../../../public/images/logo-black.png';
 
 class SocialNetwork extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarHeader from './Header/NavbarHeader.jsx';
 import Menu from './Header/Menu.jsx';
 import Search from './Header/Search.jsx';
-import '../styles/Header.scss';
+import '../../public/styles/Header.scss';
 
 class Header extends Component {
   render() {

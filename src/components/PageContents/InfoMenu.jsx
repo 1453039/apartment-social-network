@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import '../../styles/PageContents.scss';
-import '../../styles/Info.scss';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import '../../../public/styles/PageContents.scss';
+import '../../../public/styles/Info.scss';
+import BasicInfoPage from '../../containers/BasicInfoPage';
+import { BrowserRouter as Router, Route, Link,withRouter } from 'react-router-dom';
 
 class InfoMenu extends Component {
 	constructor (){
-		super();
-	}
+    super();
+  }
+  handleClickLink(){
+    this.props.history.push("/info")
+  }
   render() {
     return pug`
       ul.edit-menu
         li
           i.icon.ion-ios-information-outline
-          Router
-            Link(to='/info') Basic Information
+          a(onClick=this.handleClickLink.bind(this)) Basic Information
         li
           i.icon.ion-ios-settings
           Router
@@ -26,4 +29,4 @@ class InfoMenu extends Component {
   }
 }
 
-export default InfoMenu;
+export default withRouter(InfoMenu);

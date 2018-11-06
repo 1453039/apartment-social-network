@@ -7,7 +7,7 @@ class LoginForm extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      account:{},
+      email: '',
       isClick: false,
 			isFill: false,
       listApart: [
@@ -32,26 +32,15 @@ class LoginForm extends React.Component {
 		this.handleEmailChange = this.handleEmailChange.bind(this);
   }
   handleEmailChange (e) {
-    let {account} = this.state
-    account.email = e.target.value,
 		this.setState ({
-      account
+      email: e.target.value
 		});
 	}
 
   handleClickNext () {
-    let arrAccout = [{email:"fuck",stt:"mhabskc"},{email:"you",stt:"mhabskc"}]
-    const {account} = this.state
-    let index = _.findIndex(arrAccout,{"email":account.email})
-    console.log("here",index);
-    
-    if(index!==-1){
-      this.setState ({
-        isClick: true,
-      });
-    } else {
-      
-    }
+    this.setState ({
+      isClick: true,
+    });
   }
 
   render () {
@@ -63,7 +52,7 @@ class LoginForm extends React.Component {
 						h2.text-white Enter your email
 						form(action="#")
 							fieldset.form-group
-								input.form-control#example-email(type="text", name="email", placeholder="name@examle.com", onChange=this.handleEmailChange)
+								input.form-control#example-email(type="text", name="email", placeholder="name@examle.com", value = this.state.email, onChange=this.handleEmailChange)
 							button.btn-secondary(onClick=this.handleClickNext)
 								span Next
 			else
