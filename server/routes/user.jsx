@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var users = require('../models/User');
+var nodemailer = require('nodemailer');
+const creds = require('../config/config');
 
 router.get('/', function (req, res) {
   res.render('index')
@@ -22,6 +24,41 @@ router.route('/insert')
         res.send(err);
       res.send('User successfully added!');
     });
+  })
+
+router.route('/send')
+  .post(function (req, res) {
+    console.log('send', req.body);
+    
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 407,
+      secure: false,
+      requireTLS: true,
+      auth: {
+        user: creds.USER, // generated ethereal user
+        pass: creds.PASS // generated ethereal password
+      }
+    });
+    let mailOptions = {
+        from: creds.USER, // sender address
+        to: req.body.email,
+        subject: "Welcome to AP Social", // Subject line
+        text: 
+        ` html: <p> Your apartment domain is localhost:3000 </p>` // html body
+      };
+      transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+          res.json({
+            msg: 'fail'
+          })
+        } else {
+          res.json({
+            msg: 'success'
+          })
+        }
+      })
+
   })
 
 router.route('/update_password/:id')

@@ -22,7 +22,8 @@ class AddUser extends React.Component {
     this.insertNewUser = this.insertNewUser.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-	this.sendMail = this.sendMail.bind(this);  }
+    this.sendMail = this.sendMail.bind(this);
+  }
   openModal() {
     this.setState({
       modalIsOpen: true
@@ -30,15 +31,16 @@ class AddUser extends React.Component {
   }
   closeModal() {
     this.setState({
+      email: '',
+      room: '',
+      isAdmin: false,
       modalIsOpen: false,
       messageFromServer: ''
     });
   }
-  componentDidMount() {
-  }
   onClick(e) {
     this.insertNewUser(this);
-	this.sendMail(this);
+    this.sendMail(this);
   }
   insertNewUser(e) {
     axios.post('/members/insert',
@@ -61,16 +63,17 @@ class AddUser extends React.Component {
       });
   }
   sendMail(e) {
-    axios.post('/send',
-      querystring.stringify({
-        email: e.state.email
-      })).then((response) => {
+    axios.post('/members/send',{
+      email: e.state.email
+    }).then((response) => {
         if (response.data.msg === 'success') {
           alert("Message Sent.");
           // this.resetForm()
         } else if (response.data.msg === 'fail') {
           alert("Message failed to send.")
         }
+      }).catch(err => {
+        console.log(err);
       });
   }
   handleTextChange(e) {
