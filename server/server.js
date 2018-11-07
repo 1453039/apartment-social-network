@@ -35,7 +35,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-var server = app.listen(3000, function() {
-	console.log('Listening on port %d', server.address().port);
-});
+
 module.exports=app;
