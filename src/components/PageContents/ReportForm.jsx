@@ -4,12 +4,11 @@ class ReportForm extends React.Component {
   render() {
     return pug`
       .row
-        .col-md-2
-        .col-md-8
+        .col-md-10
           .report-form
             h3.grey What do you want to report ?
-            textarea(row='10', cols='7', placeholder='Enter text')
-            button.btn-primary Send a report
+            textarea(row='10', cols='7', placeholder='Enter text', required)
+            button.btn-primary(type='submit') Send a report
         .col-md-2
     `;
   }

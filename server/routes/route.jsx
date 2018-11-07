@@ -17,10 +17,6 @@ router.get('/newfeeds', function (req, res) {
   res.render('index')
 });
 
-router.get('/members', function (req, res) {
-  res.render('index')
-});
-
 router.get('/change-password', function (req, res) {
   res.render('index')
 });

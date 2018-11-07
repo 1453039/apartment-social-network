@@ -19,12 +19,10 @@ class InfoMenu extends Component {
           a(onClick=this.handleClickLink.bind(this)) Basic Information
         li
           i.icon.ion-ios-settings
-          Router
-            Link(to='/account-setting') Account Settings
+          Link(to='/account-setting') Account Settings
         li
           i.icon.ion-ios-locked-outline
-          Router
-            Link(to='/change-password') Change Password								
+          Link(to='/change-password') Change Password								
 		`;
   }
 }

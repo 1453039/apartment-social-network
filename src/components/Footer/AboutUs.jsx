@@ -13,8 +13,7 @@ class AboutUs extends React.Component {
         ul.footer-links
           each item in info
             li(key=item.id)
-              Router
-                Link(to=item.link) #{item.name}
+              Link(to=item.link) #{item.name}
     `;
   }
 }

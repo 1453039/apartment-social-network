@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: false}));
 mongoose.connect('mongodb://localhost:27017/apartment-social-network', { useNewUrlParser: true });
 
 app.use('/', route);
-app.use('/add-user', user);
+app.use('/members', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

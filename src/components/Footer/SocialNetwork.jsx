@@ -11,15 +11,13 @@ class SocialNetwork extends React.Component {
     const {socialNetworks} = this.props;
     return pug`
       .col-md-4.col-sm-4
-        Router
-          Link(to="/")
-            img(src=footerLogo, alt="logo-img").footer-logo
+        Link(to="/")
+          img(src=footerLogo, alt="logo-img").footer-logo
         ul.list-inline.social-icons
           each item in socialNetworks
             li(key=item.id)
-              Router
-                Link(to=item.link)
-                  i(className=item.className)
+              Link(to=item.link)
+                i(className=item.className)
     `;
   }
 }

@@ -6,7 +6,7 @@ import MyTimelinePage from './containers/MyTimelinePage';
 import ResidentPage from './containers/ResidentPage';
 import WelcomePage from './containers/WelcomePage';
 import EditPassPage from './containers/EditPassPage';
-import AddNewUser from './containers/AddNewUser';
+//import AddNewUser from './containers/AddNewUser';
 import MessagePage from './containers/MessagePage';
 import ReportPage from './containers/ReportPage';
 import AdminNotiPage from './containers/AdminNotiPage';
@@ -21,7 +21,7 @@ class Main extends Component {
       Route(path='/info', component=BasicInfoPage)
       Route(path='/members', component=ResidentPage)
       Route(path='/change-password', component=EditPassPage)
-      Route(path='/add-user', component=AddNewUser)
+      //Route(path='/add-user', component=AddNewUser)
       Route(path='/messages', component=MessagePage)
       Route(path='/admin-noti', component=AdminNotiPage)
       Route(path='/member-noti', component=MemsNotiPage)

@@ -14,21 +14,17 @@ class PostCreateBox extends React.Component {
             .tools
               ul.publishing-tools.list-inline
                 li
-                  Router
-                    Link(to="#")
-                      i.ion-compose
+                  Link(to="#")
+                    i.ion-compose
                 li
-                  Router
-                    Link(to="#")
-                      i.ion-images
+                  Link(to="#")
+                    i.ion-images
                 li
-                  Router
-                    Link(to="#")
-                      i.ion-ios-videocam
+                  Link(to="#")
+                    i.ion-ios-videocam
                 li
-                  Router
-                    Link(to="#")
-                      i.ion-map       
+                  Link(to="#")
+                    i.ion-map       
               button.btn.btn-primary.pull-right Publish
     `;
   }

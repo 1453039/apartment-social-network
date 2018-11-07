@@ -22,18 +22,17 @@ class EditPass extends Component {
 								.row
 									.form-group.col-xs-12
 										label(for='my-password') Old password
-										input#my-password.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='Old password')
+										input#my-password.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='Old password', required)
 								.row
 									.form-group.col-xs-6
 										label New password
-										input#email.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='New password')
+										input#email.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='New password', required)
 									.form-group.col-xs-6
 										label Confirm password
-										input#email.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='Confirm password')
+										input#email.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='Confirm password', required)
 								p
-									Router
-										Link(to='/') Forgot password?
-								button.btn.btn-primary(method='post') Update password
+									Link(to='/') Forgot password?
+								button.btn.btn-primary(method='post', type='submit') Update password
 		`;
   }
 }

@@ -82,22 +82,21 @@ class MessageList extends Component {
           ul.nav.nav-tabs.contact-list.scrollbar-wrapper.scrollbar-outer
             each item in message
               li(key=item.id)
-                Router
-                  Link(to='/')(data-toggle='tab')
-                    .contact
-                      img(src=item.linkImg, alt='').profile-photo-sm.pull-left
-                      .msg-preview
-                        h6 #{item.name}
-                        p.text-muted #{item.contents[item.contents.length - 1].detail}
-                        small.text-muted #{item.contents[item.contents.length - 1].time}
-                        if(item.contents[item.contents.length - 1].status=='seen')
-                          .seen
-                            i.icon.ion-checkmark-round
-                        else if(item.contents[item.contents.length - 1].status=='chat-alert')
-                          .chat-alert 1
-                        else
-                          .replied
-                            i.icon.ion-reply
+                Link(to='/')(data-toggle='tab')
+                  .contact
+                    img(src=item.linkImg, alt='').profile-photo-sm.pull-left
+                    .msg-preview
+                      h6 #{item.name}
+                      p.text-muted #{item.contents[item.contents.length - 1].detail}
+                      small.text-muted #{item.contents[item.contents.length - 1].time}
+                      if(item.contents[item.contents.length - 1].status=='seen')
+                        .seen
+                          i.icon.ion-checkmark-round
+                      else if(item.contents[item.contents.length - 1].status=='chat-alert')
+                        .chat-alert 1
+                      else
+                        .replied
+                          i.icon.ion-reply
         .col-md-7
           .tab-content.scrollbar-wrapper.wrapper.scrollbar-outer
             #contact-1.tab-pane.active

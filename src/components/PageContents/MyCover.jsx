@@ -17,14 +17,11 @@ class ResidentList extends Component {
             .col-md-9
               ul.list-inline.profile-menu
                 li
-                  Router
-                    Link(to='/timeline') My Timeline
+                  Link(to='/timeline') My Timeline
                 li
-                  Router
-                    Link(to='/info') About
+                  Link(to='/info') About
                 li
-                  Router
-                    Link(to='/members') Friends
+                  Link(to='/members') Friends
         .navbar-mobile.hidden-lg.hidden-md
           .profile-info
             img(src='http://placehold.it/300x300', alt='').img-responsive.profile-photo
@@ -33,14 +30,11 @@ class ResidentList extends Component {
           .mobile-menu
             ul.list-inline
               li
-                Router
-                  Link(to='/timeline') My Timeline
+                Link(to='/timeline') My Timeline
               li
-                Router
-                  Link(to='/info') About
+                Link(to='/info') About
               li
-                Router
-                  Link(to='/members') Friend
+                Link(to='/members') Friend
     `;
   }
 }

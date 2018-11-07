@@ -3,7 +3,7 @@ var router = express.Router();
 var users = require('../models/User');
 
 router.get('/', function (req, res) {
-  res.render('index.pug')
+  res.render('index')
 });
 
 router.route('/insert')
@@ -20,7 +20,7 @@ router.route('/insert')
     user.save(function (err) {
       if (err)
         res.send(err);
-      res.send('User successfully added!');
+      res.send('User successfully created!');
     });
   })
 

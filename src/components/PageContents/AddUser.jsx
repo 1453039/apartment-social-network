@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 var querystring = require('querystring');
+import '../../../public/styles/AddUser.scss';
 
 class AddUser extends React.Component {
   constructor() {
@@ -32,6 +33,7 @@ class AddUser extends React.Component {
       modalIsOpen: false,
       messageFromServer: ''
     });
+    document.getElementsById('form').reset();
   }
   componentDidMount() {
   }
@@ -39,7 +41,7 @@ class AddUser extends React.Component {
     this.insertNewUser(this);
   }
   insertNewUser(e) {
-    axios.post('/add-user/insert',
+    axios.post('/members/insert',
       querystring.stringify({
         email: e.state.email,
         room: e.state.room,
@@ -96,38 +98,36 @@ class AddUser extends React.Component {
     if (mess == '') {
       return pug`
         div
-          Button(bsStyle="success", bsSize="small", onClick=this.openModal)
-            span(className="glyphicon glyphicon-plus")
-          Modal(isOpen=this.state.modalIsOpen, onRequestClose=this.closeModal, contentLabel="Add User", className="Modal")
-            Link(to={ pathname: '/add-user', search: '' } style={ textDecoration: 'none' })
-              Button(bsStyle="danger", bsSize="xs", onClick=this.closeModal)
+          Button(onClick=this.openModal)#add-member.btn.btn-primary Add member
+          Modal(isOpen=this.state.modalIsOpen, onRequestClose=this.closeModal, contentLabel="Add User").Modal
+            Link(to={ pathname: '/members', search: '' } style={ textDecoration: 'none' })
+              Button(onClick=this.closeModal)
                 span(className="closebtn glyphicon glyphicon-remove")
-            fieldset
-              label(for="email") Email:
-                input(type="text", id="email", name="email", value=this.state.email, onChange=this.handleTextChange)
-              label(for="room") Room:
-                input(type="text", id="room", name="room", value=this.state.room, onChange=this.handleTextChange)
+            fieldset#form
+              label(for="email").full-screen Email:
+                input(type="text", name="email", value=this.state.email, onChange=this.handleTextChange, required)#email.form-control.input-group-lg
+              label(for="room").full-screen Room:
+                input(type="text", name="room", value=this.state.room, onChange=this.handleTextChange, required)#room.form-control.input-group-lg
               .form-group.isAdmin
                 span.custom-label 
                   strong Admin:  
-                label#female.radio-inline Yes
-                  input(type='radio', name='admin1', value='true', checked=this.state.isAdmin === true, onChange=this.handleOptionChange)
-                label#male.radio-inline No
-                  input(type='radio', name='admin2', value='false', checked=this.state.isAdmin === false, onChange=this.handleOptionChange)
+                label#female.radio-inline.gender Yes
+                  input(type='radio', name='admin1', value='true', checked=this.state.isAdmin === true, onChange=this.handleOptionChange).gender
+                label#male.radio-inline.gender No
+                  input(type='radio', name='admin2', value='false', checked=this.state.isAdmin === false, onChange=this.handleOptionChange).gender
             div(className='button-center')
-              Button(bsStyle="success", bsSize="small", onClick=this.onClick) Add New User
+              Button(onClick=this.onClick, type='submit')#invite.btn.btn-primary Invite
       `;
     }
     else {
       return pug`
         div
-          Button(bsStyle="success", bsSize="small", onClick=this.openModal)
-            span(className="glyphicon glyphicon-plus")
-          Modal(isOpen=this.state.modalIsOpen, onAfterOpen=this.afterOpenModal, onRequestClose=this.closeModal, contentLabel="Add User", className="Modal")
+          Button(onClick=this.openModal)#add-member.btn.btn-primary Add member
+          Modal(isOpen=this.state.modalIsOpen, onAfterOpen=this.afterOpenModal, onRequestClose=this.closeModal, contentLabel="Add User").Modal
             div(className='button-center')
               h3 #{mess}
-              Link(to={ pathname: '/add-user', search: '' }, style={ textDecoration: 'none' })
-                Button(bsStyle="success", bsSize="xs", onClick=this.closeModal) Close the Dialog
+              Link(to={ pathname: '/members', search: '' }, style={ textDecoration: 'none' })
+                Button(onClick=this.closeModal) Close the Dialog
       `;
     }
   }

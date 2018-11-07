@@ -27,8 +27,7 @@ class SideBarLeft extends React.Component {
         .profile-card
           img(src="http://placehold.it/300x300", alt="user").profile-photo
           h5 
-            Router
-              Link(className="text-white", to="timeline.jsx") Trần Gia Bảo Thy
+            Link(className="text-white", to="timeline.jsx") Trần Gia Bảo Thy
         ul.nav-news-feed
           li
             i.icon.ion-ios-paper 
@@ -55,10 +54,9 @@ class SideBarLeft extends React.Component {
           ul.online-users.list-inline
             each item in users
               li(key=item.id)
-                Router
-                  Link(to="/messages", title=item.name)
-                    img(src=item.linkImg, alt="user").img-responsive.profile-photo
-                    span.online-dot
+                Link(to="/messages", title=item.name)
+                  img(src=item.linkImg, alt="user").img-responsive.profile-photo
+                  span.online-dot
     `;
   }
 }

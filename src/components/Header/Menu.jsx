@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import Dropdown from '../Common/Dropdown.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class Menu extends React.Component {
   constructor () {
     super ();
     this.state = {
       home: {
-        link: '/'
+        link: '/newfeeds'
       },
       notification: [
         {
@@ -35,9 +36,10 @@ class Menu extends React.Component {
     return pug`
       ul.nav.navbar-nav.navbar-right.main-menu
         Dropdown(title='Home')
+          Link(to=this.state.home.link)
         Dropdown(title="Notification", list=this.state.notification)
-        Dropdown(title="Payment", list=this.state.payment)
-        Dropdown(title="Trading", list=this.state.trading)
+        Dropdown(title="Payment")
+        Dropdown(title="Trading")
     `;
   }
 }
