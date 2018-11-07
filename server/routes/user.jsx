@@ -20,7 +20,7 @@ router.route('/insert')
     user.save(function (err) {
       if (err)
         res.send(err);
-      res.send('User successfully added!');
+      res.send('User successfully created!');
     });
   })
 
