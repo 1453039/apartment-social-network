@@ -62,6 +62,7 @@ class AddUser extends React.Component {
         console.log(error.response);
       });
   }
+
   sendMail(e) {
     axios.post('/members/send',{
       email: e.state.email
@@ -76,6 +77,7 @@ class AddUser extends React.Component {
         console.log(err);
       });
   }
+
   handleTextChange(e) {
     if (e.target.name == "email") {
       this.setState({
@@ -117,8 +119,8 @@ class AddUser extends React.Component {
           Button(onClick=this.openModal)#add-member.btn.btn-primary Add member
           Modal(isOpen=this.state.modalIsOpen, onRequestClose=this.closeModal, contentLabel="Add User").Modal
             Link(to={ pathname: '/members', search: '' } style={ textDecoration: 'none' })
-              Button(onClick=this.closeModal)
-                span(className="closebtn glyphicon glyphicon-remove")
+              Button(onClick=this.closeModal).close-btn
+                span.closebtn.glyphicon.glyphicon-remove
             fieldset#form
               label(for="email").full-screen Email:
                 input(type="text", name="email", value=this.state.email, onChange=this.handleTextChange, required)#email.form-control.input-group-lg
