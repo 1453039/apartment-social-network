@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/Message.scss';
 
 class MessageList extends Component {

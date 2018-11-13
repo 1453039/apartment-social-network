@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PostCreateBox from './PostCreateBox.jsx'
 import PostContent from './PostContent.jsx'
-import '../../../public/styles/PageContents.scss';
 
 class MyTimeline extends Component {
 	constructor (){

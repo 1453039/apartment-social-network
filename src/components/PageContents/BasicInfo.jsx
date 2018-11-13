@@ -22,7 +22,6 @@ class MyInfo extends Component {
 		this.setState({birthday: e.target.value});
 	}
   render() {
-		//const {profile} = this.state;
     return pug`
 			#page-contents
 				.row
@@ -60,7 +59,6 @@ class MyInfo extends Component {
 									label#male.radio-inline Male
 										input(type='radio', name='optradio', value='male')
 								button.info.btn.btn-primary(method='post', type='submit') Save change
-								
 		`;
   }
 }
