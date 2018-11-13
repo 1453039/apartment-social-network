@@ -6,7 +6,7 @@ const isTest = process.env.NODE_ENV === 'test';
 
 module.exports = {
   mode: 'development',  
-  entry: ['babel-polyfill', './src/index.js'],
+  entry: './src/index.js',
   output: {
     path       : path.join(__dirname, 'public'),
     filename   : 'bundle.js'
@@ -73,8 +73,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.pug',
-      inject: false,
-      chunksSortMode: 'dependency'
+      inject: true
     })
   ],
   node: {

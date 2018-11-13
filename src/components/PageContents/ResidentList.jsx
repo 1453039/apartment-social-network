@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/ResidentList.scss';
 import '../../../public/styles/AddUser.scss';
-//import '../../../public/styles/Info.scss';
 import Friends from './Friends.jsx';
 import AddUser from './AddUser.jsx'
 

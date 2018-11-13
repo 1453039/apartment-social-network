@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/Info.scss';
 import InfoMenu from './InfoMenu.jsx'
 import { BrowserRouter as Router, Link } from 'react-router-dom';

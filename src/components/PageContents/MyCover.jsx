@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/ResidentList.scss';
 
 class ResidentList extends Component {
-  getLink(link){
-    return  "/@"+this.props.id+"?"+link
-  }
   render() {
-    const {id} = this.props
     return pug`
       .timeline-cover
         .timeline-nav-bar.hidden-sm.hidden-xs
@@ -21,11 +16,11 @@ class ResidentList extends Component {
             .col-md-9
               ul.list-inline.profile-menu
                 li
-                  Link(to=this.getLink("timeline")) My Timeline
+                  Link(to='/timeline') My Timeline
                 li
-                  Link(to=this.getLink("info")) About
+                  Link(to='/info') About
                 li
-                  Link(to=this.getLink("members")) Friends
+                  Link(to='/members') Friends
         .navbar-mobile.hidden-lg.hidden-md
           .profile-info
             img(src='http://placehold.it/300x300', alt='').img-responsive.profile-photo
@@ -34,11 +29,11 @@ class ResidentList extends Component {
           .mobile-menu
             ul.list-inline
               li
-                Link(to=this.getLink("timeline")) My Timeline
+                Link(to='/timeline') My Timeline
               li
-                Link(to=this.getLink("info")) About
+                Link(to='/info') About
               li
-                Link(to=this.getLink("members")) Friend
+                Link(to='/members') Friend
     `;
   }
 }
