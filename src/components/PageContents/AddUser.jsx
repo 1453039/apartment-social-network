@@ -22,6 +22,7 @@ class AddUser extends React.Component {
     this.insertNewUser = this.insertNewUser.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.sendMail = this.sendMail.bind(this);
   }
   openModal() {
     this.setState({
@@ -30,14 +31,16 @@ class AddUser extends React.Component {
   }
   closeModal() {
     this.setState({
+      email: '',
+      room: '',
+      isAdmin: false,
       modalIsOpen: false,
       messageFromServer: ''
     });
   }
-  componentDidMount() {
-  }
   onClick(e) {
     this.insertNewUser(this);
+    this.sendMail(this);
   }
   insertNewUser(e) {
     axios.post('/members/insert',
@@ -45,7 +48,7 @@ class AddUser extends React.Component {
         email: e.state.email,
         room: e.state.room,
         isAdmin: e.state.isAdmin,
-        id: '5bdff073d91fab88e2fd01f0'
+        id: '5be40332a4aa5bc40cdbe0d9'
       }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -57,6 +60,19 @@ class AddUser extends React.Component {
       })
       .catch(error => {
         console.log(error.response);
+      });
+  }
+  sendMail(e) {
+    axios.post('/members/send',{
+      email: e.state.email
+    }).then((response) => {
+        if (response.data.msg === 'success') {
+          alert("Message Sent.");
+        } else if (response.data.msg === 'fail') {
+          alert("Message failed to send.")
+        }
+      }).catch(err => {
+        console.log(err);
       });
   }
   handleTextChange(e) {
@@ -100,8 +116,8 @@ class AddUser extends React.Component {
           Button(onClick=this.openModal)#add-member.btn.btn-primary Add member
           Modal(isOpen=this.state.modalIsOpen, onRequestClose=this.closeModal, contentLabel="Add User").Modal
             Link(to={ pathname: '/members', search: '' } style={ textDecoration: 'none' })
-              Button(onClick=this.closeModal).close-btn
-                span.closebtn.glyphicon.glyphicon-remove
+              Button(onClick=this.closeModal)
+                span(className="closebtn glyphicon glyphicon-remove")
             fieldset#form
               label(for="email").full-screen Email:
                 input(type="text", name="email", value=this.state.email, onChange=this.handleTextChange, required)#email.form-control.input-group-lg

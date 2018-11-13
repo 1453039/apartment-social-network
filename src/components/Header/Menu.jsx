@@ -24,10 +24,10 @@ class Menu extends React.Component {
         },
       ],
       payment: {
-        link: '/payments'
+        link: '/payment'
       },
       trading: {
-        link: '/tradings'
+        link: '/trading'
       },
     };
 	}
@@ -35,10 +35,11 @@ class Menu extends React.Component {
   render () {
     return pug`
       ul.nav.navbar-nav.navbar-right.main-menu
-        Dropdown(title='Home', link=this.state.home.link)
+        Dropdown(title='Home')
+          Link(to=this.state.home.link)
         Dropdown(title="Notification", list=this.state.notification)
-        Dropdown(title="Payment", link=this.state.payment.link)
-        Dropdown(title="Trading", link=this.state.trading.link)
+        Dropdown(title="Payment")
+        Dropdown(title="Trading")
     `;
   }
 }

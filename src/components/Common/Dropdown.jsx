@@ -32,20 +32,17 @@ class Dropdown extends Component {
   }
 
   render () {
-    const{list, link} = this.props
+    const{list} = this.props
     const{listOpen, headerTitle} = this.state
     return pug`
       li.dropdown
-        if (list)
-          div(className="dropdown-toggle", onClick=this.toggleListTmp) #{headerTitle}
-            if (listOpen)
-              ul(className="dropdown-menu")
-                each item in list
-                  li(key=item.id)
-                    Link(to=item.link) #{item.title}
-        else 
-          Link(to=link).dropdown-toggle #{headerTitle}
-    `;
+        div(className="dropdown-toggle", onClick=this.toggleListTmp) #{headerTitle}
+        if listOpen
+          ul(className="dropdown-menu")
+            each item in list
+              li(key=item.id)
+                Link(to=item.title) #{item.title}
+        `;
   }
 }
 

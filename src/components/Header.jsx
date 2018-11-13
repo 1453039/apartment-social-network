@@ -11,8 +11,8 @@ class Header extends Component {
       nav.navbar.navbar-default.navbar-fixed-top.menu
         .container
           NavbarHeader
-          //Menu
-          //Search
+          Menu
+          Search
     `;
   }
 }
