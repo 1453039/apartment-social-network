@@ -1,8 +1,0 @@
-{
-    "presets": ["env", "react", "stage-1"],
-    "plugins": [
-        "transform-react-pug",
-        "transform-react-jsx",
-        "react-pug"
-    ]
-}
