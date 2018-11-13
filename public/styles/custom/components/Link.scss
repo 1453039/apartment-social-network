@@ -1,0 +1,20 @@
+a {
+    color: #27aae1;
+    outline: none; 
+
+    &:focus, &:active {
+        outline: none;
+    }
+}
+
+.panel-default>.panel-heading {
+    .panel-title {
+        a {
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+

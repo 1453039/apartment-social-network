@@ -1,0 +1,97 @@
+.button-col {
+  width: 100px;
+  text-align: center;
+}
+
+.desc-col {
+  width: 300px;
+  text-align: left;
+}
+
+table {
+  counter-reset: tableCount;
+}
+
+.counterCell:before {
+  content: counter(tableCount);
+  counter-increment: tableCount;
+}
+
+.counterCell {
+  text-align: center;
+  width: 50px;
+}
+
+.button-center {
+  text-align: center;
+}
+
+.Modal {
+  position: relative;
+  top: 250px;
+  left: 400px;
+  right: 20px;
+  bottom: 20px;
+  background-color: #F5F5F5;
+  width: 500px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rebeccapurple;
+}
+
+.button-center {
+  text-align: center;
+}
+
+label.radio-inline {
+  float: left;
+  margin-right: 30px;
+  width: 50px;
+  input.gender {
+    margin-top: 8px;
+    margin-left: -35px;
+  }
+}
+
+fieldset {
+  margin: 0 10px;
+}
+
+.closebtn {
+  float: right;
+}
+
+#add-member{
+  outline: none;
+  font-weight: 100;
+}
+
+#invite {
+  outline: none;
+  font-weight: 100;
+  width: 50%;
+}
+
+#form {
+  label.full-screen {
+    width: 100%;
+    input {
+      border: 1px solid black;
+    }
+  }
+}
+
+span.custom-label {
+  padding: 0;
+  float: left;
+  margin-right: 25px;
+}
