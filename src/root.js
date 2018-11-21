@@ -10,7 +10,8 @@ import ReportPage from './containers/ReportPage';
 import AdminNotiPage from './containers/AdminNotiPage';
 import MemsNotiPage from './containers/MemsNotiPage';
 import LoginPage from './containers/LoginPage';
-
+import PaymentPage from './containers/PaymentPage';
+import EventPage from './containers/EventPage';
 class Root extends React.Component {
   componentWillMount() {
     let patch = window.location.search
@@ -23,48 +24,54 @@ class Root extends React.Component {
     this.setState({ patch, id })
   }
   render() {
-    const { patch, id } = this.state
-    console.log("patch", patch)
-    switch (patch) {
+    switch (this.state.patch) {
       case "?info":
         return pug`
-          BasicInfoPage(id=id)
+          BasicInfoPage
         `
       case "?timeline":
         return pug`
-          MyTimelinePage(id=id)
+          MyTimelinePage
         `
       case "?members":
         return pug`
-          ResidentPage(id=id)
+          ResidentPage
         `
       case "?change-password":
         return pug`
-          EditPassPage(id=id)
+          EditPassPage
         `
       case "?messages":
         return pug`
-          MessagePage(id=id)
+          MessagePage
         `
       case "?admin-noti":
         return pug`
-          AdminNotiPage(id=id)
+          AdminNotiPage
         `
       case "?member-noti":
         return pug`
-          MemsNotiPage(id=id)
+          MemsNotiPage
         `
       case "?reports":
         return pug`
-          ReportPage(id=id)
+          ReportPage
         `
       case "?newfeeds":
         return pug`
-          NewfeedPage(id=id)
+          NewfeedPage
+        `
+      case "?payments":
+        return pug `
+          PaymentPage
+        `
+      case "?events":
+        return pug `
+          EventPage
         `
       default:
         return pug`
-          LoginPage(id=id)
+          LoginPage
         `
     }
   }

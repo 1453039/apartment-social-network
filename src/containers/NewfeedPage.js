@@ -4,6 +4,9 @@ import PageContents from '../components/PageContents.jsx'
 import Footer from '../components/Footer.jsx'
 
 class NewfeedPage extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
     return pug`
       Header

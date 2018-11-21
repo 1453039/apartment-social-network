@@ -7,23 +7,31 @@
 	}
 }
 .timeline-cover {
-  background: url(http://placehold.it/1030x360) no-repeat;
-  background-position: center;
-  background-size: cover;
   min-height: 360px;
   border-radius: 0 0 4px 4px;
-  position: relative;
+	position: relative;
+	.input-type-file {
+		display: none;
+	}
+	
+	label {
+		width: 100%;
+	}
+	img {
+		object-fit: fill;
+		width: 100%;
+		max-height: 360px;
+	}
   .timeline-nav-bar {
     background: rgba(0, 0, 0, .7);
     width: 100%;
     position: absolute;
-    bottom: 25px;
+		bottom: 25px;
     .profile-info {
 	    position: absolute;
 	    text-align: center;
 	    padding: 0 20px;
 	    top: -110px;
-	    z-index: 999;
 	    img.profile-photo {
 		    height: 200px;
 		    width: 200px;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import DownArrow from '../../../public/images/down-arrow.png';
 
 class Dropdown extends Component {
@@ -32,18 +32,21 @@ class Dropdown extends Component {
   }
 
   render () {
-    const{list} = this.props
+    const{list, link} = this.props
     const{listOpen, headerTitle} = this.state
     return pug`
       li.dropdown
-        div(className="dropdown-toggle", onClick=this.toggleListTmp) #{headerTitle}
-        if listOpen
-          ul(className="dropdown-menu")
-            each item in list
-              li(key=item.id)
-                Link(to=item.title) #{item.title}
-        `;
+        if (list)
+          div(className="dropdown-toggle", onClick=this.toggleListTmp) #{headerTitle}
+            if (listOpen)
+              ul(className="dropdown-menu")
+                each item in list
+                  li(key=item.id)
+                    Link(to='@' + this.props.match.params.id + '?' + item.link) #{item.title}
+        else 
+          Link(to=link).dropdown-toggle #{headerTitle}
+    `;
   }
 }
 
-export default Dropdown;
+export default withRouter(Dropdown);

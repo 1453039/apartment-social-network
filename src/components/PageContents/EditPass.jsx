@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/Info.scss';
 import InfoMenu from './InfoMenu.jsx'
 import { BrowserRouter as Router, Link } from 'react-router-dom';
@@ -32,7 +31,7 @@ class EditPass extends Component {
 										input#email.form-control.input-group-lg(type='password', name='password', title='Enter password', placeholder='Confirm password', required)
 								p
 									Link(to='/') Forgot password?
-								button.btn.btn-primary(method='post', type='submit') Update password
+								button.btn.btn-primary.info(method='post', type='submit') Update password
 		`;
   }
 }

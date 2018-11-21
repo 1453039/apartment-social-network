@@ -132,5 +132,13 @@
         }
       }
     }
+    .send-message {
+      .form-control {
+        border: 1px solid #ccc;
+      }
+      .btn.btn-primary {
+        border-radius: 0 5px 5px 0 !important;
+      }
+    }
   }
 }

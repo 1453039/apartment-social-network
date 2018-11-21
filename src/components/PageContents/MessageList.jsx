@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/Message.scss';
 
 class MessageList extends Component {
@@ -102,30 +101,35 @@ class MessageList extends Component {
             #contact-1.tab-pane.active
               .chat-body
                 ul.chat-message
-                    li.left
-                      img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
-                      .chat-item
-                        .chat-item-header
-                          h5 #{message[0].name}
-                          small.text-muted #{message[0].contents[0].time}
-                        p #{message[0].contents[0].detail}
-                    li.right
-                      .chat-item
-                        .chat-item-header
-                          small.text-muted #{message[0].contents[1].time}
-                        p #{message[0].contents[1].detail}
-                    li.left
-                      img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
-                      .chat-item
-                        .chat-item-header
-                          h5 #{message[0].name}
-                          small.text-muted #{message[0].contents[2].time}
-                        p #{message[0].contents[2].detail}
-                    li.right
-                      .chat-item
-                        .chat-item-header
-                          small.text-muted #{message[0].contents[3].time}
-                        p #{message[0].contents[3].detail}
+                  li.left
+                    img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
+                    .chat-item
+                      .chat-item-header
+                        h5 #{message[0].name}
+                        small.text-muted #{message[0].contents[0].time}
+                      p #{message[0].contents[0].detail}
+                  li.right
+                    .chat-item
+                      .chat-item-header
+                        small.text-muted #{message[0].contents[1].time}
+                      p #{message[0].contents[1].detail}
+                  li.left
+                    img(src=message[0].linkImg, alt='').profile-photo-sm.pull-left
+                    .chat-item
+                      .chat-item-header
+                        h5 #{message[0].name}
+                        small.text-muted #{message[0].contents[2].time}
+                      p #{message[0].contents[2].detail}
+                  li.right
+                    .chat-item
+                      .chat-item-header
+                        small.text-muted #{message[0].contents[3].time}
+                      p #{message[0].contents[3].detail}
+              .send-message
+                .input-group
+                  input.form-control(type="text", placeholder="Type your message")
+                  span.input-group-btn
+                    button.btn.btn-primary(type="button") Send
     `;
   }
 }

@@ -17,8 +17,8 @@ class LoginForm extends React.Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.getListUser = this.getListUser.bind(this);
     this.getListApart = this.getListApart.bind(this);
+    this.isAdmin = this.isAdmin.bind(this);
   }
-
   handleEmailChange(e) {
     this.setState({
       email: e.target.value
@@ -26,27 +26,39 @@ class LoginForm extends React.Component {
   }
 
   async handleClickNext(e) {
-    e.preventDefault();
-    var seft = this
-    let listUsers = []
-    let listApart = []
-    await this.getListUser().then(async (response)=> {
-      listUsers = response.data
-      for (var id in listUsers) {
-        await seft.getListApart(listUsers[id]).then(function (res) {
-          let data = res
-          data.isAdmin = seft.isAdmin(listUsers,res)
-          data.id_user = listUsers[id]._id 
-          let tamole = []
-          tamole.push(data)
-          listApart = listApart.concat(tamole)
-          seft.setState({listApart,
-            isClick: true,})
-        });
-      }
-    })
+    try {
+      e.preventDefault()
+      var seft = this
+      let listUsers = []
+      let listApart = []
+      await this.getListUser().then(async (response) => {
+        listUsers = response.data
+        for (var id in listUsers) {
+          await seft.getListApart(listUsers[id]).then(function (res) {
+            let data = res
+            data.isAdmin = seft.isAdmin(listUsers, res)
+            data.id_user = listUsers[id]._id
+            let tamole = []
+            tamole.push(data)
+            listApart = listApart.concat(tamole)
+            seft.setState({
+              listApart,
+              isClick: true,
+            })
+          });
+        }
+      });
+    }
+    catch(error) {
+      console.log("error", error);
+    }
   }
-	  
+
+  isAdmin(listUser, item) {
+    let index = _.findIndex(listUser, { "apartment": item._id })
+    return listUser[index].isAdmin
+  }
+
   async getListUser() {
     try {
       let result = await axios.get('/apartment/get-list-apartment', {
@@ -72,17 +84,12 @@ class LoginForm extends React.Component {
     }
     catch (error) {
       console.log("error", error);
-    }
+    };
   }
 
-  isAdmin(listUser,item) {
-    let index = _.findIndex(listUser,{"apartment":item._id})
-    return listUser[index].isAdmin
-  }
-
-render() {
-  const { isClick, listApart, email } = this.state
-  let disabled = email?false:true
+  render() {
+    const { isClick, listApart, email } = this.state
+    let disabled = email ? false : true
     return pug`
 			if !isClick 
 				.login-form.col-md-5.col-sm-5

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../../../public/styles/PageContents.scss';
 import '../../../public/styles/ResidentList.scss';
 import '../../../public/styles/AddUser.scss';
-//import '../../../public/styles/Info.scss';
 import Friends from './Friends.jsx';
 import AddUser from './AddUser.jsx'
 
 class ResidentList extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			data: [],
 			role: 'admin',
@@ -34,7 +32,7 @@ class ResidentList extends Component {
 	}
 	componentDidMount() {
     this.getData(this);
-  }
+	}
 
   componentWillReceiveProps(nexProps) {
     this.getData(this);
@@ -53,6 +51,8 @@ class ResidentList extends Component {
   render() {
 		return pug`
 			#page-contents
+				if(this.state.modalIsOpen)
+					.overlay
 				.row
 					.col-md-3
 						if(this.state.role =='admin')

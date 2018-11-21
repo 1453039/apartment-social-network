@@ -4,6 +4,7 @@ var users = require('../models/User');
 var nodemailer = require('nodemailer');
 const creds = require('../config/config');
 
+
 router.get('/', function (req, res) {
   res.render('index')
 });
@@ -13,12 +14,15 @@ router.route('/insert')
     var user = new users();
     user.email = req.body.email;
     user.apartment = req.body.id;
-    user.password = req.body.password ? req.body.password : "";
-    user.name = req.body.name ? req.body.name : "";
-    user.birthday = req.body.birthday ? req.body.birthday : "";
-    user.sex = req.body.sex ? req.body.sex : "";
-    user.room = req.body.room ? req.body.room : "";
-    user.isAdmin = req.body.isAdmin ? req.body.isAdmin : false;
+    user.password = "";
+    user.name = "";
+    user.birthday = "";
+    user.sex = "";
+    user.avatar = req.body.avatar;
+    user.cover = req.body.cover;
+    user.flat = req.body.isAdmin ? "" : req.body.flat;
+    user.status = false;
+    user.isAdmin = req.body.isAdmin;
     user.save(function (err) {
       if (err)
         res.send(err);
@@ -28,8 +32,6 @@ router.route('/insert')
 
 router.route('/send')
   .post(function (req, res) {
-    console.log('send', req.body.email);
-
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       secureConnection: false,
@@ -50,11 +52,13 @@ router.route('/send')
       }
     });
 
+    let text = "Your apartment domain is localhost:3000/@" + req.body.id
+
     let mailOptions = {
       from: creds.USER, // sender address
       to: req.body.email,
       subject: "Welcome to AP Social", // Subject line
-      text: "Your apartment domain is localhost:3000"
+      text: text
     };
     
     transporter.sendMail(mailOptions, (err, data) => {
@@ -71,28 +75,33 @@ router.route('/send')
 
   })
 
-router.route('/update_password/:id')
+router.route('/update_password')
   .post(function (req, res) {
-    const password = req.body.password;
-    users.update({ _id: req.params.id }, password, function (err, result) {
-      if (err)
+    const id = req.body.id
+    users.findById(id, function(err, user){
+      if(err)
         res.send(err);
-      res.send('User password successfully updated!');
-    });
+      const password = user.encryptPassword(req.body.password);
+      users.update({ _id: id }, {password: password}, function (err, result) {
+        if (err)
+          res.send(err);
+        res.send('User password successfully updated!');
+      });
+    })
   });
 
-router.route('/update_info/:id')
-  .post(function (req, res) {
-    const doc = {
-      name: req.body.name,
-      birthday: req.body.birthday,
-      sex: req.body.sex
-    };
-    console.log(doc);
-    users.update({ _id: req.params.id }, doc, function (err, result) {
+router.route('/update-info')
+  .put(function (req, res) {
+    let name = req.body.name
+    let birthday = req.body.birthday
+    let sex = req.body.sex
+    users.updateOne({ _id: req.body.id }, {$set: {name: name, birthday: birthday, sex: sex}}, function (err, result) {
       if (err)
         res.send(err);
-      res.send('User info successfully updated!');
+      req.session.user.name = name
+      req.session.user.birthday = birthday
+      req.session.user.sex = sex
+      res.json('User info successfully updated!');
     });
   });
 
@@ -113,8 +122,8 @@ router.get('/getAll', function (req, res) {
   });
 });
 
-router.get('/get_user', function (req, res) {
-  id = res.query.id;
+router.get('/get-user', function (req, res) {
+  let id = req.query.id;
   users.findById(id, function (err, user) {
     if (err)
       res.send(err);
@@ -122,8 +131,8 @@ router.get('/get_user', function (req, res) {
   });
 });
 
-router.get('/get-resident-of-apartment/:id', function (req, res) {
-  var id = req.params.id;
+router.get('/get-resident-of-apartment', function (req, res) {
+  var id = req.query.id;
   users.find({ apartment: id }, function (err, users) {
     if (err)
       res.send(err);
@@ -131,17 +140,18 @@ router.get('/get-resident-of-apartment/:id', function (req, res) {
   });
 });
 
-router.get('/save_into_session', function (req, res) {
-  id = res.query.id;
+router.post('/save_to_session', function (req, res) {
+  const id = req.body.id;
   users.findById(id, function (err, user) {
     if (err)
       res.send(err);
-    req.user = user;
+    req.session.user = user;
+    res.send("Save user to session successfully!")
   });
 });
 
 router.get('/get_user_from_session', function (req, res) {
-  res.json(req.user);
+  res.json(req.session.user);
 });
 
 module.exports = router;

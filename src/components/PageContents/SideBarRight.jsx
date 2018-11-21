@@ -67,7 +67,7 @@ class SideBarRight extends React.Component {
                     Link(to='/timeline') #{item.name}
                 Router
                   Link(to='/').text-green Chat now
-        .footer
+        .footer.hidden-sm.hidden-xs
           ul
             each item in info
               li(key=item.id) 

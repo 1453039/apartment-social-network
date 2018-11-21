@@ -47,9 +47,11 @@ header {
         }
         .dropdown-toggle:hover, .dropdown-toggle:active, .dropdown-toggle:focus {
           color: #27aae1;
+          cursor: pointer;
           background: none;
         }
         .dropdown-menu {
+          margin-top: 0;
           display: block;
           position: absolute;
           top: 100%;

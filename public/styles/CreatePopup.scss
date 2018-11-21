@@ -14,7 +14,7 @@
     left: 30%;
     right: 30%;
     top: 20%;
-    bottom: 40%;
+    bottom: 20%;
     margin: auto;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -27,16 +27,28 @@
       background: #F5F5F5;
     }
     button#publish.btn.btn-primary {
-      margin-top: 5px;
+      margin-top: 30px;
       outline: none;
     }
-    input{
+    .input-type-file{
       display: none;
+    }
+    .form-group {
+      clear: both;
+      width: 100%;
+      input.form-control {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        float: right;
+      }
+      textarea.form-control {
+        margin: 10px;
+      }
     }
     label{
       padding: 5px;
       float: left;
-      margin-top: 20px;
       i {
         color: #6d6e71;
         font-size: 30px;
@@ -44,11 +56,9 @@
       }
     }
     .selectedFile {
-      margin-top: 20px;
-      margin-left: 10%;
       float: left;
-      max-width: 70%;
-      max-height: 70%;
+      max-width: 50%;
+      max-height: 50%;
     }
   }
 }

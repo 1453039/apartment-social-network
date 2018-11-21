@@ -2,44 +2,38 @@ import React, {Component} from 'react';
 import Dropdown from '../Common/Dropdown.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Menu extends React.Component {
-  constructor () {
-    super ();
+  constructor (props) {
+    super (props);
     this.state = {
-      home: {
-        link: '/newfeeds'
-      },
       notification: [
         {
           id: 0,
           title: 'From Admins',
-          link: '/admin-noti'
+          link: 'admin-noti'
         },
         {
           id: 1,
           title: 'From Members',
-          link: '/member-noti'
+          link: 'member-noti'
         },
       ],
-      payment: {
-        link: '/payment'
-      },
-      trading: {
-        link: '/trading'
-      },
+      id: this.props.match.params.id
     };
+    this.getLink = this.getLink.bind(this);
 	}
-
+  getLink(link){
+    return  "/@"+this.state.id+"?"+link
+  }
   render () {
     return pug`
       ul.nav.navbar-nav.navbar-right.main-menu
-        Dropdown(title='Home')
-          Link(to=this.state.home.link)
-        Dropdown(title="Notification", list=this.state.notification)
-        Dropdown(title="Payment")
-        Dropdown(title="Trading")
+        Dropdown(title="Home", link=this.getLink("newfeeds"))
+        Dropdown(title="Notification", list=this.state.notification) 
+        Dropdown(title="Payment", link=this.getLink("payments"))
+        Dropdown(title="Trading", link=this.getLink("tradings"))
     `;
   }
 }
@@ -52,4 +46,4 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps)(withRouter(Menu));
